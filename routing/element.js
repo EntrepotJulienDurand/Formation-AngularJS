@@ -10,5 +10,8 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl:'views/element/creation.html',
             controller:'creerElement'
         })
+        .otherwise({
+            redirectTo:'/elements'
+        })
     ;
 }]);

@@ -4,7 +4,7 @@ app
 /**
  * Créer un élément
  */
-    .controller('creerElement', ['$scope', function ($scope) {
+    .controller('creerElement', ['$scope', '$location', function ($scope, $location) {
         $scope.element = {
             auteur: null,
             titre: null,
@@ -15,6 +15,7 @@ app
             elements.push(element);
             //détachement du bind
             $scope.element = {};
+            $location.path('elements');
         };
     }])
 /**
