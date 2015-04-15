@@ -4,28 +4,17 @@
         <meta charset="UTF-8">
         <!-- /vendor-->
         <script src="vendor/angular/angular.js"></script>
+        <script src="vendor/angular-route/angular-route.js"></script>
+        <script src="vendor/angular-sanitize/angular-sanitize.js"></script>
+        <script src="vendor/moment/moment.js"></script>
         <!-- /bootstrap-->
         <script src="app.js"></script>
         <!-- /controllers -->
         <script src="controllers/element.js"></script>
+        <!-- /routing -->
+        <script src="routing/element.js"></script>
     </head>
     <body>
-        <div id="creationDElements" ng-controller="creerElement">
-            <h1>Nouvel élément à créer</h1>
-            <pre>{{element}}</pre>
-            <form ng-submit="ajouter(element);">
-                auteur : <input type="text" ng-model="element.auteur" name="auteur"/>
-                titre : <input type="text" ng-model="element.titre" name="titre"/>
-                date création : <input type="date" ng-model="element.creeLe" name="creeLe"/>
-                <input type="text" ng-model="element.description" name="description"/>
-                <button type="submit">Ajouter</button>
-            </form>
-        </div>
-
-        <div id="elements" ng-controller="elementsController" >
-            <div ng-repeat="element in elements">
-                <p>#{{$index}} : Elément {{element.titre}} publié par {{element.auteur}} publié le {{element.creeLe}} <span ng-if="element.description">: {{element.description}}</span></p>
-            </div>
-        </div>
+        <div id="container" ng-view></div>
     </body>
 </html>
