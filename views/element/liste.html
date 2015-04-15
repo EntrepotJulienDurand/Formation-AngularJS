@@ -1,5 +1,6 @@
 <div id="elements" >
-    <div ng-repeat="element in elements">
+    <input type="text" ng-model="filtre">
+    <div ng-repeat="element in elements | filter:filtre">
         <p>#{{$index}} : Elément {{element.titre}} publié par {{element.auteur}} publié le {{element.creeLe}} <span ng-if="element.description">: {{element.description}}</span></p>
     </div>
 </div>
