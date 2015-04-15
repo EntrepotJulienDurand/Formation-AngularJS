@@ -4,6 +4,10 @@
         <meta charset="UTF-8">
         <!-- /vendor-->
         <script src="vendor/angular/angular.js"></script>
+        <!-- /bootstrap-->
+        <script src="app.js"></script>
+        <!-- /controllers -->
+        <script src="controllers/element.js"></script>
     </head>
     <body>
         <div id="creationDElements" ng-controller="creerElement">
@@ -23,42 +27,5 @@
                 <p>#{{$index}} : Elément {{element.titre}} publié par {{element.auteur}} publié le {{element.creeLe}} <span ng-if="element.description">: {{element.description}}</span></p>
             </div>
         </div>
-        <script type="application/javascript">
-            var app=angular.module('collectify',[]);
-            var elements=[
-                {
-                    auteur:'foo',
-                    titre:'fooo',
-                    creeLe:'...'
-                },
-                {
-                    auteur:'bar',
-                    titre:'barrr',
-                    creeLe:'...'
-                },
-                {
-                    auteur:'baz',
-                    titre:'bazzz',
-                    creeLe:'...'
-                }
-            ];
-
-            app.controller('creerElement', function ($scope) {
-                $scope.element={
-                    auteur:null,
-                    titre:null,
-                    creeLe:null
-                };
-
-                $scope.ajouter = function (element) {
-                    elements.push(element);
-                    //détachement du bind
-                    $scope.element={};
-                };
-            })
-            .controller('elementsController', function ($scope) {
-                $scope.elements=elements;
-            });
-        </script>
     </body>
 </html>
