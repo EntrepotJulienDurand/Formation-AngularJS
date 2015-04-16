@@ -27,13 +27,19 @@
     <body>
         <div class="container">
             <div id="user"><h2>{{nom}}</h2></div>
-            <a href="#" class="navbar-brand">Bibliothèque</a>
-            <ul class="page-header">
-                <li><a href="#/elements">lister les elements</a> </li>
-                <li><a href="#/elements/ajouter">ajouter un élément</a> </li>
-                <li><a href="#/test">test</a> </li>
-            </ul>
-        </div>
+            <nav class="nav navbar-default">
+                <div class="navbar-header">
+                    <a href="#/elements" class="navbar-brand">Bibliothèque</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/elements">lister les elements</a> </li>
+                        <li><a href="#/elements/ajouter">ajouter un élément</a> </li>
+                        <li><a href="#/test">test</a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </div><br>
         <div id="container" ng-view></div>
     </body>
 </html>
