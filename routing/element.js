@@ -10,6 +10,10 @@ app.config(['$routeProvider', 'routingconfig',function ($routeProvider, routingc
             templateUrl:'views/element/creation.html',
             controller:'creerElement'
         })
+        .when(routingconfig.PREFIXE_ELEMENTS+'/:id',{
+            templateUrl:'views/element/creation.html',
+            controller:'editerElement'
+        })
         .otherwise({
             redirectTo:routingconfig.PREFIXE_ELEMENTS
         })

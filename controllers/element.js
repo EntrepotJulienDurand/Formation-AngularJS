@@ -5,14 +5,28 @@ app
  * Créer un élément
  */
     .controller('creerElement', ['$scope', 'entrepotElement','$location', function ($scope, entrepotElement, $location) {
+        $scope.libelleBouton = 'Ajouter';
 
-        $scope.ajouter = function (element) {
+        $scope.action = function (element) {
             entrepotElement
                 .persiste(element)
                 .then(function (res) {
                     $location.path('/elements');
                     return res;
                 })
+        };
+    }])
+
+    .controller('editerElement', ['$scope', 'entrepotElement','$location', '$routeParams', function ($scope, entrepotElement, $location, $routeParams) {
+        $scope.libelleBouton = 'Editer';
+        entrepotElement
+            .element($routeParams.id)
+            .then(function (res) {
+                $scope.element=res;
+                return res;
+            });
+        $scope.action = function (element) {
+            alert('Je s\'appelle groot');
         };
     }])
 /**

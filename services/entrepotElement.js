@@ -40,7 +40,14 @@ app
             return deferred.promise;
         };
         this.element = function (id) {
+            var deferred = $q.defer();
 
+            pouchdb
+                .get(id, {include_docs: true})
+                .then(deferred.resolve)
+                .catch(deferred.reject);
+
+            return deferred.promise;
         };
         this.supprime = function (id) {
 
