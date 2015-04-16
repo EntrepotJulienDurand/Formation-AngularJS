@@ -1,11 +1,11 @@
 app
-    .service('entrepotElement', ['pouchdb','$q', '$rootScope', function (pouchdb, $q, $rootScope) {
+    .service('entrepotElement', ['pouchdb', '$q', '$rootScope', function (pouchdb, $q, $rootScope) {
         this.persiste = function (element) {
             var deferred = $q.defer();
-            element.type='element';
+            element.type = 'element';
             pouchdb.post(element, function (err, res) {
                 $rootScope.$apply(function () {
-                    if(err){
+                    if (err) {
                         deferred.reject(err);
                     } else {
                         deferred.resolve(res);
@@ -15,7 +15,31 @@ app
 
             return deferred.promise;
         };
-        this.elements = function (id) {
+        this.elements = function () {
+            var deferred = $q.defer();
+
+            function prometsLesElementsDeTypeElement(element) {
+                if (element.type === 'element') {
+                    emit(element);
+                }
+            }
+
+            function rendLeResultatExploitable(res) {
+                var elements = res.rows.map(function (element) {
+                    return element.key;
+                });
+                return elements;
+            }
+
+            pouchdb
+                .query(prometsLesElementsDeTypeElement, {include_docs: true})
+                .then(rendLeResultatExploitable)
+                .then(deferred.resolve)
+                .catch(deferred.reject);
+
+            return deferred.promise;
+        };
+        this.element = function (id) {
 
         };
         this.supprime = function (id) {

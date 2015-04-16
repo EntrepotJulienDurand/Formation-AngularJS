@@ -11,12 +11,17 @@ app
                 .persiste(element)
                 .then(function (res) {
                     $location.path('/elements');
+                    return res;
                 })
         };
     }])
 /**
  * Lister les éléments
  */
-    .controller('elementsController', ['$scope', function ($scope) {
-        $scope.elements = [];
+    .controller('elementsController', ['$scope', 'entrepotElement', function ($scope, entrepotElement) {
+        entrepotElement
+            .elements()
+            .then(function (res) {
+                $scope.elements = res;
+            });
     }]);
