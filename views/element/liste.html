@@ -2,9 +2,12 @@
     Filtre : <input type="text" ng-model="filtre">
     <div ng-repeat="element in elements | filter:filtre">
         <p>
-            #{{$index}} : Elément {{element.titre}} publié par {{element.auteur}} publié le {{element.creeLe}}
-
-            <span ng-if="element.description">: {{element.description}}</span> | {{element.prix | currency}}
+            #{{$index}} :
+            Elément {{element.titre}}
+            publié par {{element.auteur}}
+            publié le {{element.creeLe}}
+            <span ng-if="element.description">: {{element.description}}</span>
+            <span ng-if="element.prix"> | {{element.prix | currency}}</span>
         </p>
     </div>
 </div>
