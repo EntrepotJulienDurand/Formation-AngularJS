@@ -2,10 +2,11 @@
     <h1>Nouvel élément à créer</h1>
     <pre>{{element}}</pre>
     <form ng-submit="ajouter(element);">
-        auteur : <input type="text" ng-model="element.auteur" name="auteur"/>
-        titre : <input type="text" ng-model="element.titre" name="titre"/>
-        date création : <input type="date" ng-model="element.creeLe" name="creeLe"/>
-        <input type="text" ng-model="element.description" name="description"/>
+        auteur : <input type="text" ng-model="element.auteur" name="auteur"/><br/>
+        titre : <input type="text" ng-model="element.titre" name="titre"/><br/>
+        date création : <input type="date" ng-model="element.creeLe" name="creeLe"/><br/>
+        prix : <input type="text" ng-model="element.prix" name="prix"/><br/>
+        description : <input type="text" ng-model="element.description" name="description"/><br/>
         <button type="submit">Ajouter</button>
     </form>
 </div>
