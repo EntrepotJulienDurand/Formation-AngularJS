@@ -24,4 +24,8 @@ app
             .then(function (res) {
                 $scope.elements = res;
             });
+        
+        $scope.editer= function () {
+            
+        }
     }]);
