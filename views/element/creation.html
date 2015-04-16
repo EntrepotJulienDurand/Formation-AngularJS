@@ -1,12 +1,14 @@
-<div id="creationDElements">
-    <h1>Nouvel élément à créer</h1>
+<div id="creationDElements" style="width:70%; margin-left: auto; margin-right: auto;">
     <pre>{{element}}</pre>
-    <form ng-submit="ajouter(element);">
-        auteur : <input type="text" ng-model="element.auteur" name="auteur"/><br/>
-        titre : <input type="text" ng-model="element.titre" name="titre"/><br/>
-        date création : <input type="date" ng-model="element.creeLe" name="creeLe"/><br/>
-        prix : <input type="text" ng-model="element.prix" name="prix"/><br/>
-        description : <input type="text" ng-model="element.description" name="description"/><br/>
-        <button type="submit" class="btn btn-lg btn-primary">Ajouter</button>
-    </form>
+    <div style="width:35%; margin-left: auto; margin-right: auto;">
+        <form ng-submit="ajouter(element);" class="form-signin">
+            <h2 class="form-signin-heading">Nouvel élément à créer</h2>
+            <input placeholder="Auteur" type="text" ng-model="element.auteur" name="auteur" class="form-control"/><br/>
+            <input placeholder="Titre" type="text" ng-model="element.titre" name="titre" class="form-control"/><br/>
+            <input placeholder="Date création" type="date" ng-model="element.creeLe" name="creeLe" class="form-control"/><br/>
+            <input placeholder="Prix" type="text" ng-model="element.prix" name="prix" class="form-control"/><br/>
+            <input placeholder="Description" type="text" ng-model="element.description" name="description" class="form-control"/><br/>
+            <button type="submit" class="btn btn-lg btn-primary btn-block">Ajouter</button>
+        </form>
+    </div>
 </div>
