@@ -1,9 +1,13 @@
 app.
-    controller('recupereElementsMockes', ['$scope', '$http', '$cookieStore','$rootScope', '$localStorage', 'websiteconfig', 'testeur', 'testeurFactory', function($scope, $http, $cookieStore, $rootScope, $localStorage, websiteconfig, testeur, testeurFactory){
+    controller('recupereElementsMockes', ['$scope', '$http', '$cookieStore','$rootScope', '$localStorage', 'websiteconfig', 'testeur', 'testeurFactory', 'pouchdb', function($scope, $http, $cookieStore, $rootScope, $localStorage, websiteconfig, testeur, testeurFactory, pouchdb){
         console.log(websiteconfig);
         console.log(testeurFactory.nom());
         console.log(testeur.nom());
         $scope.$storage=$localStorage;
+
+        pouchdb.info().then(function (result) {
+            console.log(result);
+        });
 
         recupereLesElementsDeLaRessourceMocke();
 
