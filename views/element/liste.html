@@ -21,7 +21,7 @@
                 <td>{{element.creeLe}}</td>
                 <td>{{element.description}}</td>
                 <td>{{element.prix | currency}}</td>
-                <td><a href="#/elements/{{element._id}}" class="btn btn-success">Editer</a></td>
+                <td><a href="#{{routingconfig.PREFIXE_ELEMENTS}}/{{element._id}}" class="btn btn-success">Editer</a></td>
             </tr>
         </table>
     </div>

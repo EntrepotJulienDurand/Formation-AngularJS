@@ -1,17 +1,17 @@
 "use strict";
 
-app.config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', 'routingconfig',function ($routeProvider, routingconfig) {
     $routeProvider
-        .when('/elements', {
+        .when(routingconfig.PREFIXE_ELEMENTS, {
             templateUrl:'views/element/liste.html',
             controller:'elementsController'
         })
-        .when('/elements/ajouter', {
+        .when(routingconfig.PREFIXE_ELEMENTS+'/ajouter', {
             templateUrl:'views/element/creation.html',
             controller:'creerElement'
         })
         .otherwise({
-            redirectTo:'/elements'
+            redirectTo:routingconfig.PREFIXE_ELEMENTS
         })
     ;
 }]);
