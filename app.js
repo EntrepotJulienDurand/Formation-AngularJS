@@ -1,6 +1,9 @@
 'use strict';
 
-var app=angular.module('collectify',['ngRoute','ngSanitize','ngCookies','ngStorage']);
+var app=angular.module('collectify',['ngRoute','ngSanitize','ngCookies','ngStorage'])
+    .config(['websiteconfig', function (websiteconfig) {
+        console.log(websiteconfig);
+    }]);
 var elements=[
     {
         auteur:'foo',

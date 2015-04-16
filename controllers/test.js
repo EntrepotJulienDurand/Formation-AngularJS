@@ -1,6 +1,7 @@
 app.
-    controller('recupereElementsMockes', ['$scope', '$http', '$cookieStore','$rootScope', '$localStorage', 'websiteconfig', 'testeur', function($scope, $http, $cookieStore, $rootScope, $localStorage, websiteconfig, testeur){
+    controller('recupereElementsMockes', ['$scope', '$http', '$cookieStore','$rootScope', '$localStorage', 'websiteconfig', 'testeur', 'testeurFactory', function($scope, $http, $cookieStore, $rootScope, $localStorage, websiteconfig, testeur, testeurFactory){
         console.log(websiteconfig);
+        console.log(testeurFactory.nom());
         console.log(testeur.nom());
         $scope.$storage=$localStorage;
 
