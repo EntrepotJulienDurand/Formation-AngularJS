@@ -9,6 +9,7 @@
         <script src="vendor/moment/moment.js"></script>
         <link rel="stylesheet" type="text/css" href="vendor/bootstrap/dist/css/bootstrap.css"/>
         <script src="vendor/angular-i18n/angular-locale_fr-fr.js"></script>
+        <script src="vendor/angular-cookies/angular-cookies.js"></script>
 
         <!-- /bootstrap-->
         <script src="app.js"></script>
@@ -22,11 +23,14 @@
         <script src="routing/test.js"></script>
     </head>
     <body>
-        <ul>
-            <li><a href="#/elements">lister les elements</a> </li>
-            <li><a href="#/elements/ajouter">ajouter un élément</a> </li>
-            <li><a href="#/test">test</a> </li>
-        </ul>
+        <div class="container">
+            <div id="user"><h2>{{nom}}</h2></div>
+            <ul class="page-header">
+                <li><a href="#/elements">lister les elements</a> </li>
+                <li><a href="#/elements/ajouter">ajouter un élément</a> </li>
+                <li><a href="#/test">test</a> </li>
+            </ul>
+        </div>
         <div id="container" ng-view></div>
     </body>
 </html>
