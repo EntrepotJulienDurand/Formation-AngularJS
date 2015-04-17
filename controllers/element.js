@@ -8,17 +8,9 @@ app
         $scope.libelleBouton = 'Ajouter';
 
         $scope.action = function (element) {
-            if (dateValide($scope)) {
-                entrepotElement
-                    .persiste(element)
-                    .then(function (res) {
-                        $location.path('/elements');
-                        return res;
-                    })
-            }
+            validePersisteEtRedirige($scope, entrepotElement, element, $location);
         };
     }])
-
     .controller('editerElement', ['$scope', 'entrepotElement', '$location', '$routeParams', function ($scope, entrepotElement, $location, $routeParams) {
         $scope.libelleBouton = 'Editer';
         entrepotElement
@@ -28,9 +20,7 @@ app
                 return res;
             });
         $scope.action = function (element) {
-            if(dateValide($scope)){
-                alert('Je s\'appelle groot');
-            }
+            validePersisteEtRedirige($scope, entrepotElement, element, $location);
         };
     }])
 /**
@@ -44,17 +34,15 @@ app
                 $scope.elements = res;
                 return res;
             });
-
     }])
     .controller('elementsController', ['$scope', 'entrepotElement', function ($scope, entrepotElement) {
         entrepotElement
             .elements()
             .then(function (res) {
                 $scope.elements = res;
+                return res;
             });
     }]);
-
-
 
 function dateValide($scope) {
     if (!$scope.element.creeLe) {
@@ -62,4 +50,16 @@ function dateValide($scope) {
         return false;
     }
     return true;
+}
+
+
+function validePersisteEtRedirige($scope, entrepotElement, element, $location) {
+    if (dateValide($scope)) {
+        entrepotElement
+            .persiste(element)
+            .then(function (res) {
+                $location.path('/elements');
+                return res;
+            })
+    }
 }
