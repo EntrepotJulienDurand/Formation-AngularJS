@@ -15,7 +15,7 @@ app
         $scope.libelleBouton = 'Ajouter';
 
         $scope.remplitFormulaire = function () {
-            $scope.element.auteur = 'jdu';
+            $scope.element.auteur = chance.name();
             $scope.element.titre = 'jdu';
             $scope.element.creeLe = new Date();
             $scope.element.description = 'jdu';
