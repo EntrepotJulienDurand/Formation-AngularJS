@@ -5,7 +5,22 @@ app
  * Créer un élément
  */
     .controller('creerElement', ['$scope', 'entrepotElement', '$location', function ($scope, entrepotElement, $location) {
+        $scope.element = {
+            auteur: null,
+            titre: null,
+            creeLe: null,
+            description: null,
+            prix: null
+        };
         $scope.libelleBouton = 'Ajouter';
+
+        $scope.remplitFormulaire = function () {
+            $scope.element.auteur = 'jdu';
+            $scope.element.titre = 'jdu';
+            $scope.element.creeLe = new Date();
+            $scope.element.description = 'jdu';
+            $scope.element.prix = 15;
+        };
 
         $scope.action = function (element) {
             validePersisteEtRedirige($scope, entrepotElement, element, $location);
