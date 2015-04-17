@@ -26,11 +26,12 @@ app
 /**
  * Lister les éléments
  */
-    .controller('supprimerElement', ['$scope', 'entrepotElement', '$routeParams', function ($scope, entrepotElement, $routeParams) {
+    .controller('supprimerElement', ['$scope', 'entrepotElement', '$routeParams', '$location', function ($scope, entrepotElement, $routeParams, $location) {
         entrepotElement
             .supprime($routeParams.id)
             .then(entrepotElement.elements)
             .then(function (res) {
+                $location.path('/elements');
                 $scope.elements = res;
                 return res;
             });
