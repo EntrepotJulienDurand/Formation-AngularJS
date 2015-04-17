@@ -1,0 +1,25 @@
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Elément</th>
+        <th>Publié par</th>
+        <th>Publié le</th>
+        <th>Description</th>
+        <th>Prix</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tr ng-repeat="element in elements | filter:filtre">
+        <td>{{$index}}</td>
+        <td>{{element.titre}}</td>
+        <td>{{element.auteur}}</td>
+        <td>{{element.creeLe}}</td>
+        <td>{{element.description}}</td>
+        <td>{{element.prix | currency}}</td>
+        <td>
+            <a href="#{{routingconfig.PREFIXE_ELEMENTS}}/{{element._id}}" class="btn btn-success">Editer</a>
+            <a href="#{{routingconfig.PREFIXE_ELEMENTS}}/supprimer/{{element._id}}" class="btn btn-danger">Supprimer</a>
+        </td>
+    </tr>
+</table>

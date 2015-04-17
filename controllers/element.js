@@ -18,7 +18,7 @@ app
             $scope.element.auteur = chance.name();
             $scope.element.titre = 'jdu';
             $scope.element.creeLe = new Date();
-            $scope.element.description = 'jdu';
+            $scope.element.description = chance.word({syllables: 4});
             $scope.element.prix = 15;
         };
 
