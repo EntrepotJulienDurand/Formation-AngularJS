@@ -3,7 +3,7 @@
 app
     .directive('elements', function () {
         return {
-            restrict: 'AEC',
+            restrict: 'E',
             templateUrl:'views/partials/element/elements.html'
         };
     });
