@@ -7,16 +7,8 @@ app
     .controller('creerElement', ['$scope', 'entrepotElement', '$location', function ($scope, entrepotElement, $location) {
         $scope.libelleBouton = 'Ajouter';
 
-        function dateValide() {
-            if (!$scope.element.creeLe) {
-                $scope.afficherAlerteDate = true;
-                return false;
-            }
-            return true;
-        }
-
         $scope.action = function (element) {
-            if (dateValide()) {
+            if (dateValide($scope)) {
                 entrepotElement
                     .persiste(element)
                     .then(function (res) {
@@ -36,7 +28,9 @@ app
                 return res;
             });
         $scope.action = function (element) {
-            alert('Je s\'appelle groot');
+            if(dateValide($scope)){
+                alert('Je s\'appelle groot');
+            }
         };
     }])
 /**
@@ -48,9 +42,12 @@ app
             .then(function (res) {
                 $scope.elements = res;
             });
-
-        $scope.editer = function () {
-
-        }
     }]);
 
+function dateValide($scope) {
+    if (!$scope.element.creeLe) {
+        $scope.afficherAlerteDate = true;
+        return false;
+    }
+    return true;
+}
