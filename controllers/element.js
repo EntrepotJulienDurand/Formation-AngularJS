@@ -4,25 +4,35 @@ app
 /**
  * Créer un élément
  */
-    .controller('creerElement', ['$scope', 'entrepotElement','$location', function ($scope, entrepotElement, $location) {
+    .controller('creerElement', ['$scope', 'entrepotElement', '$location', function ($scope, entrepotElement, $location) {
         $scope.libelleBouton = 'Ajouter';
 
+        function dateValide() {
+            if (!$scope.element.creeLe) {
+                $scope.afficherAlerteDate = true;
+                return false;
+            }
+            return true;
+        }
+
         $scope.action = function (element) {
-            entrepotElement
-                .persiste(element)
-                .then(function (res) {
-                    $location.path('/elements');
-                    return res;
-                })
+            if (dateValide()) {
+                entrepotElement
+                    .persiste(element)
+                    .then(function (res) {
+                        $location.path('/elements');
+                        return res;
+                    })
+            }
         };
     }])
 
-    .controller('editerElement', ['$scope', 'entrepotElement','$location', '$routeParams', function ($scope, entrepotElement, $location, $routeParams) {
+    .controller('editerElement', ['$scope', 'entrepotElement', '$location', '$routeParams', function ($scope, entrepotElement, $location, $routeParams) {
         $scope.libelleBouton = 'Editer';
         entrepotElement
             .element($routeParams.id)
             .then(function (res) {
-                $scope.element=res;
+                $scope.element = res;
                 return res;
             });
         $scope.action = function (element) {
@@ -38,8 +48,9 @@ app
             .then(function (res) {
                 $scope.elements = res;
             });
-        
-        $scope.editer= function () {
-            
+
+        $scope.editer = function () {
+
         }
     }]);
+

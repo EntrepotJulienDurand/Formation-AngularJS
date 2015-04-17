@@ -1,14 +1,55 @@
 <div id="creationDElements" style="width:70%; margin-left: auto; margin-right: auto;">
     <pre>{{element}}</pre>
     <div style="width:35%; margin-left: auto; margin-right: auto;">
-        <form ng-submit="action(element);" class="form-signin">
+        <form ng-submit="action(element);" class="form-signin" name="creationDElement">
             <h2 class="form-signin-heading">Nouvel élément à créer</h2>
-            <input placeholder="Auteur" type="text" ng-model="element.auteur" name="auteur" class="form-control"/><br/>
-            <input placeholder="Titre" type="text" ng-model="element.titre" name="titre" class="form-control"/><br/>
-            <input placeholder="Date création" type="date" ng-model="element.creeLe" name="creeLe" class="form-control"/><br/>
-            <input placeholder="Prix" type="text" ng-model="element.prix" name="prix" class="form-control"/><br/>
-            <input placeholder="Description" type="text" ng-model="element.description" name="description" class="form-control"/><br/>
-            <button type="submit" class="btn btn-lg btn-primary btn-block">{{libelleBouton}}</button>
+            <input placeholder="Auteur"
+                   type="text"
+                   ng-model="element.auteur"
+                   name="auteur"
+                   class="form-control"
+                   required/>
+            <br/>
+
+            <input placeholder="Titre"
+                   type="text"
+                   ng-model="element.titre"
+                   name="titre"
+                   class="form-control"
+                   required/>
+            <br/>
+
+            <div class="alert alert-danger"
+                 ng-show="afficherAlerteDate">
+                La date est requise !
+            </div>
+            <input placeholder="Date création"
+                   type="date"
+                   ng-model="element.creeLe"
+                   name="creeLe"
+                   class="form-control"/>
+            <br/>
+
+            <input placeholder="Prix"
+                   type="number"
+                   ng-model="element.prix"
+                   name="prix"
+                   class="form-control"
+                   required/>
+            <br/>
+
+            <input placeholder="Description"
+                   type="text"
+                   ng-model="element.description"
+                   name="description"
+                   class="form-control"
+                   required/>
+            <br/>
+
+            <button type="submit"
+                    class="btn btn-lg btn-primary btn-block">
+                {{libelleBouton}}
+            </button>
         </form>
     </div>
 </div>
