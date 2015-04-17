@@ -36,6 +36,16 @@ app
 /**
  * Lister les éléments
  */
+    .controller('supprimerElement', ['$scope', 'entrepotElement', '$routeParams', function ($scope, entrepotElement, $routeParams) {
+        entrepotElement
+            .supprime($routeParams.id)
+            .then(entrepotElement.elements)
+            .then(function (res) {
+                $scope.elements = res;
+                return res;
+            });
+
+    }])
     .controller('elementsController', ['$scope', 'entrepotElement', function ($scope, entrepotElement) {
         entrepotElement
             .elements()
@@ -43,6 +53,8 @@ app
                 $scope.elements = res;
             });
     }]);
+
+
 
 function dateValide($scope) {
     if (!$scope.element.creeLe) {

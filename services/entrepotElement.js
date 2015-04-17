@@ -50,7 +50,15 @@ app
             return deferred.promise;
         };
         this.supprime = function (id) {
-
+            var deferred = $q.defer();
+            pouchdb
+                .get(id)
+                .then(function (doc) {
+                    return pouchdb.remove(doc._id, doc._rev);
+                })
+                .then(deferred.resolve)
+                .catch(deferred.reject);
+            return deferred.promise;
         };
 
     }]);

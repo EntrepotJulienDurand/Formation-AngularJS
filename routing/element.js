@@ -6,6 +6,10 @@ app.config(['$routeProvider', 'routingconfig',function ($routeProvider, routingc
             templateUrl:'views/element/liste.html',
             controller:'elementsController'
         })
+        .when(routingconfig.PREFIXE_ELEMENTS+'/supprimer/:id', {
+            templateUrl:'views/element/liste.html',
+            controller:'supprimerElement'
+        })
         .when(routingconfig.PREFIXE_ELEMENTS+'/ajouter', {
             templateUrl:'views/element/creation.html',
             controller:'creerElement'
