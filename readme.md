@@ -8,6 +8,7 @@ D'abord une Todo List puis maintennant une bibliothèque avec, à terme, la poss
 * un serveur express
 * un gruntfile
 * un peu d'indus quoi ! ;)
+
 # Installation
 1. clone
 2. bower install
